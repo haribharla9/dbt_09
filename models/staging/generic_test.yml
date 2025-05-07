@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: staging_orders
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('staging_customers')
+              field: id
