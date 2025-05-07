@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: snowflake_raw_jaffle_shop
+    database: raw  
+    schema: jaffle_shop  
+    tables:
+      - name: orders
+      - name: customers
+
+  - name: snowflake_raw_stripe
+    database: raw  
+    schema: stripe 
+    tables:
+      - name: payment
+
+  - name: snowflake_raw_public
+    database: raw  
+    schema: public 
+    tables:
+      - name: marvel
