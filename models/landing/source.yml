@@ -6,10 +6,13 @@ sources:
     schema: jaffle_shop
     tables:
       - name: orders
+        description: This table is an order tables which has user id with orders information
       - name: customers
+        description: All cusotmer information
 
   - name: snowflake_raw2
     database: raw
+    description: This database has staging tables which payment and other tables
     schema: stripe
     tables:
       - name: payment
