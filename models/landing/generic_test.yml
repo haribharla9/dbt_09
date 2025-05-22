@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: landing_customers
+    columns:
+      - name: id
+        tests:
+          - unique:
+              config:
+                store_failures: true
+          - not_null
+  - name: landing_orders
+    columns:
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["placed", "shipped", "completed", "returned"]
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('landing_customers')
+              field: id
